@@ -37,11 +37,16 @@ class DefaultCategorySeeder extends Seeder
           ['name' => 'Telepon Genggam', 'code' => '4103', 'parent_code' => '4100'],
           ['name' => 'Telepon Rumah', 'code' => '4104', 'parent_code' => '4100'],
           ['name' => 'Internet', 'code' => '4105', 'parent_code' => '4100'],
+          ['name' => 'Makan di Luar', 'code' => '4301', 'parent_code' => '4300'],
+          ['name' => 'Belanja Bulanan', 'code' => '4302', 'parent_code' => '4300'],
           ['name' => 'Pesawat', 'code' => '4601', 'parent_code' => '4600'],
           ['name' => 'Akomodasi', 'code' => '4602', 'parent_code' => '4600'],
           ['name' => 'Transportasi', 'code' => '4603', 'parent_code' => '4600'],
           ['name' => 'Belanja', 'code' => '4604', 'parent_code' => '4600'],
-          ['name' => 'Makan Minum', 'code' => '4610', 'parent_code' => '4600']
+          ['name' => 'Makan Minum', 'code' => '4610', 'parent_code' => '4600'],
+          ['name' => 'Olahraga', 'code' => '4A01', 'parent_code' => '4A00'],
+          ['name' => 'Gambar', 'code' => '4A02', 'parent_code' => '4A00'],
+          ['name' => 'Elektronika', 'code' => '4A03', 'parent_code' => '4A00']
         ];
 
         foreach($categories as $category){

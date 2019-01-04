@@ -29,3 +29,9 @@ Route::post('/category', 'CategoryController@store');
 Route::get('/contact', 'ContactController@index');
 Route::get('/contact/{id}', 'ContactController@show');
 Route::post('/contact', 'ContactController@store');
+
+// API for Expense
+Route::get('/expense', 'ExpenseController@index');
+Route::get('/expense/{id}', 'ExpenseController@show');
+Route::post('/expense', 'ExpenseController@store');
+Route::delete('/expense/{id}', 'ExpenseController@destroy');
