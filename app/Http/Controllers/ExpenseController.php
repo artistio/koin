@@ -40,7 +40,6 @@ class ExpenseController extends Controller
     {
         //
         $validator = Validator::make($request->all(), [
-          'user_id' => 'required|numeric',
           'expense_date' => 'required|date',
           'payee_id' => 'required|numeric',
           'amount' => 'required|numeric'
@@ -50,9 +49,11 @@ class ExpenseController extends Controller
           return response()->json(['message'=>$validator->errors()]);
         }
 
+        $my_user_id = $request->user()->id;
+
         // Set field from input data
         $expense = new Expense;
-        $expense->user_id = $request['user_id'];
+        $expense->user_id = $my_user_id;
         $expense->expense_date = $request['expense_date'];
         $expense->payee_id = $request['payee_id'];
         $expense->amount = $request['amount'];
