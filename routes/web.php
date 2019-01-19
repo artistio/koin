@@ -24,3 +24,8 @@ Route::get('/budget', 'BudgetController@index')->name('budget');
 
 // Route for Contact
 Route::get('/contact', 'ContactController@index')->name('contact');
+
+// Route for Expense
+Route::get('/expense/category', 'ExpenseController@category')->name('selectCategory');
+Route::get('/expense/new', 'ExpenseController@create')->name('createExpenseForm');
+Route::post('/expense', 'ExpenseController@store')->name('storeExpense');

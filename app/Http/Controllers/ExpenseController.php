@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Expense;
 use App\Contact;
+use App\Category;
 use Validator;
+
+/* Expense Controller for Web */
 
 class ExpenseController extends Controller
 {
@@ -21,13 +24,31 @@ class ExpenseController extends Controller
     }
 
     /**
+     * Return the list of Category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function category()
+    {
+        //
+        $myCategory = Category::All();
+        return view('expense.selectCategory')
+          ->with('categoryList', $myCategory)
+          ->with('isExpense', true);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        return view('expense.create')
+          ->with('categoryCode', $request->category)
+          ->with('categoryName', Category::getName($request->category))
+          ->with('isExpense', true);
     }
 
     /**

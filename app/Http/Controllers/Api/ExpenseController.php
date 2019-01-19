@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Expense;
 use App\Contact;
+
 use Validator;
+
+/* Expense Controller for API */
 
 class ExpenseController extends Controller
 {
