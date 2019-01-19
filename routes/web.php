@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route for Budget
+Route::get('/budget', 'BudgetController@index')->name('budget');
+
+// Route for Contact
+Route::get('/contact', 'ContactController@index')->name('contact');

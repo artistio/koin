@@ -16,7 +16,11 @@ class ContactController extends Controller
     public function index()
     {
         //
-        return Contact::All();
+        $myContact = Contact::All();
+        return view('contact.index')
+          ->with('contactList', $myContact)
+          ->with('isContact', true);
+
     }
 
     /**

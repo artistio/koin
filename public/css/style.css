@@ -103,3 +103,27 @@
   color: white;
   background-color: #3b5998;
 }
+
+.quick-access-menu {
+  margin-bottom: 50px;
+}
+
+.quick-access-menu-icon {
+  max-width: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+.quick-access-menu-icon-highlight {
+  background-color: #90EE90;
+}
+
+.quick-access-menu-icon:hover {
+  background-color: #9ACD32;
+}
+
+.quick-access-menu-label {
+  text-align: center;
+}

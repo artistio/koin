@@ -5,10 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Budget;
 use App\Contact;
+use Auth;
 use Validator;
 
 class BudgetController extends Controller
 {
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +28,11 @@ class BudgetController extends Controller
     public function index()
     {
         //
-        return Budget::All();
+        $user = Auth::user();
+        $myBudget = Budget::where('user_id', $user->id)->get();
+        return view('budget.index')
+          ->with('budgetList', $myBudget)
+          ->with('isBudget', true);
     }
 
     /**
