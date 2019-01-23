@@ -21,7 +21,7 @@ class CreateExpensesTable extends Migration
             $table->unsignedTinyInteger('day_of_month'); // 1-30/31. For Feb: 1-28/29
             $table->unsignedTinyInteger('expense_month'); // January = 1, December = 12
             $table->unsignedSmallInteger('expense_year'); // Four digit year
-            $table->unsignedInteger('payee_id');
+            $table->unsignedInteger('payee_id')->nullable();
             $table->string('expense_code', 4);
             $table->unsignedInteger('amount');
             $table->timestamps();

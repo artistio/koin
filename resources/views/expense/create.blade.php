@@ -9,12 +9,22 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md h3">{{__('Record Expense for')}} {{ $categoryName }}</div>
     <div class="col"><a href="{{ route('selectCategory') }}">{{__('Select another category')}}</a></div>
+    @if ($errors->any())
+      <div class="w-100"></div>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form class="form-signin" method="POST" action="{{ route('storeExpense') }}">
       @csrf
       <input name="categoryCode" type="hidden" id="inputCategoryCode" class="form-control" value="{{ $categoryCode }}" required>
 
       <div class="form-label-group">
-        <input name="date" type="date" id="inputDate" class="form-control" placeholder="Transaction Date" value={{ now() }} required>
+        <input name="expense_date" type="date" id="inputDate" class="form-control" placeholder="Transaction Date" value={{ now() }} required>
         <label for="inputDate">{{ __('Transaction Date') }}</label>
       </div>
 

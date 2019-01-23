@@ -62,12 +62,17 @@ class ExpenseController extends Controller
         //
         $validator = Validator::make($request->all(), [
           'expense_date' => 'required|date',
-          'payee_id' => 'required|numeric',
+          'payee_id' => 'numeric',
           'amount' => 'required|numeric'
         ]);
 
         if ($validator->fails()) {
-          return response()->json(['message'=>$validator->errors()]);
+          return view('expense.create')
+            ->withInput($request)
+            ->withErrors($validator)
+            ->with('categoryCode', $request->categoryCode)
+            ->with('categoryName', Category::getName($request->categoryCode))
+            ->with('isExpense', true);
         }
 
         $my_user_id = $request->user()->id;
@@ -80,28 +85,26 @@ class ExpenseController extends Controller
         $expense->amount = $request['amount'];
 
         // Calculate date fields from input data
-        $datestring = strtotime($request['expense_date']);
+        $datestring = strtotime($request['expenseDate']);
         $expense->expense_day = date("N", $datestring);
         $expense->day_of_month = date("j", $datestring);
         $expense->expense_month = date("m", $datestring);
         $expense->expense_year = date("Y", $datestring);
 
-        // Get Expense Code
-        if ($request['expense_code'] == "") {
-          $my_contact = Contact::where('id', $request['payee_id'])
-            ->first();
-          $my_expense_code = $my_contact['expense_code'];
-        } else {
-          $my_expense_code = $request['expense_code'];
-        }
-
-        $expense->expense_code = $my_expense_code;
+        $expense->expense_code = $request->categoryCode;
 
         if($expense->save())
         {
-          return \Response::json(['message' => "success"],201);
+          return redirect()->route('selectCategory')
+            ->with('result', 0 )
+            ->with('isExpense', true);
         } else {
-          return \Response::json(['message' => "error saving"],500);
+          return view('expense.create')
+            ->withInput($request)
+            ->withErrors($validator)
+            ->with('categoryCode', $request->categoryCode)
+            ->with('categoryName', Category::getName($request->categoryCode))
+            ->with('isExpense', true);
         }
     }
 
