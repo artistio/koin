@@ -30,7 +30,7 @@ server {
     error_log /var/log/nginx/$APP_NAME.error.log;
 
     location / {
-        try_files $uri $uri/ =404;
+        try_files \$uri \$uri/ =404;
     }
 
     location ~ \.php$ {
