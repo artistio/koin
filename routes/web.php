@@ -29,3 +29,6 @@ Route::get('/contact', 'ContactController@index')->name('contact');
 Route::get('/expense/category', 'ExpenseController@category')->name('selectCategory');
 Route::get('/expense/new', 'ExpenseController@create')->name('createExpenseForm');
 Route::post('/expense', 'ExpenseController@store')->name('storeExpense');
+
+// Route for Category
+Route::get('/category', 'CategoryController@index')->name('categoryIndex');

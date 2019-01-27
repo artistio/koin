@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Category;
+use App\User;
+use Auth;
 //use App\Http\Requests\CategoryStoreRequest;
 use Validator;
 
@@ -17,7 +19,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::All();
+      $myUser = Auth::user();
+      $myCategory = Category::orderBy('name')->get();
+      return view('category.index')
+        ->with('categoryList', $myCategory)
+        ->with('isCategory', true)
+        ->with('isAdmin', $myUser->is_admin);
     }
 
     /**

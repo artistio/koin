@@ -12,8 +12,9 @@ class Category extends Model
   }
 
   // Get parent category
-  public function parent() {
-    return $this->belongTo('App\Category','parent_id','id');
+  // Currently not working, so please use getName
+  public function get() {
+    return $this->belongsTo('App\Category', 'parent_id');
   }
 
   public static function getName(string $categoryCode) {
