@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Expense;
 use App\Contact;
 use App\Category;
+use Auth;
 use Validator;
 
 /* Expense Controller for Web */
@@ -17,10 +18,34 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return Expense::All();
+        // Default return today's expense
+        $myUser = Auth::user();
+        if (isset($request->start_date) && isset($request->end_date)) {
+          $myExpense = Expense::whereBetween('expense_date', [ $request->start_date, $request->end_date ])
+            ->where('user_id', $myUser->id)
+            ->get();
+          $start_date = $request->start_date;
+          $end_date = $request->end_date;
+        } elseif (isset($request->start_date)) {
+          $myExpense = Expense::where('expense_date', $request->start_date)
+            ->where('user_id', $myUser->id)
+            ->get();
+          $start_date = $request->start_date;
+          $end_date = date('Y-m-d');
+        } else {
+          $myExpense = Expense::where('expense_date', date('Y-m-d'))
+            ->where('user_id', $myUser->id)
+            ->get();
+          $start_date = date('Y-m-d');
+          $end_date = date('Y-m-d');
+        }
+        return view('expense.index')
+          ->with('expenseList', $myExpense)
+          ->with('isExpense', true)
+          ->with('start_date', $start_date)
+          ->with('end_date', $end_date);
     }
 
     /**
@@ -34,7 +59,7 @@ class ExpenseController extends Controller
         $myCategory = Category::All();
         return view('expense.selectCategory')
           ->with('categoryList', $myCategory)
-          ->with('isExpense', true);
+          ->with('isNewExpense', true);
     }
 
     /**
@@ -63,8 +88,13 @@ class ExpenseController extends Controller
         $validator = Validator::make($request->all(), [
           'expense_date' => 'required|date',
           'payee_id' => 'numeric',
+          'categoryCode' => 'required|string',
           'amount' => 'required|numeric'
         ]);
+
+        if ( !isset($request->categoryCode) ) {
+          return redirect()->route('selectCategory');
+        }
 
         if ($validator->fails()) {
           return view('expense.create')

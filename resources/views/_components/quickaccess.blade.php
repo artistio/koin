@@ -4,12 +4,14 @@
           <div class="row">
             <div class="col-3">
               <a href="/expense/category">
-                <img id="new-expense" class="quick-access-menu-icon rounded {{ isset($isExpense) ? 'quick-access-menu-icon-highlight' : ''}}" src="/svg/new_expense.svg">
+                <img id="new-expense" class="quick-access-menu-icon rounded {{ isset($isNewExpense) ? 'quick-access-menu-icon-highlight' : ''}}" src="/svg/new_expense.svg">
               </a>
               <div class="quick-access-menu-label d-none d-sm-block">{{ __('New Expense') }}</div>
             </div>
             <div class="col-3">
-              <img id="list-expense" class="quick-access-menu-icon rounded" src="/svg/list_expense.svg">
+              <a href="/expense">
+                <img id="list-expense" class="quick-access-menu-icon rounded {{ isset($isExpense) ? 'quick-access-menu-icon-highlight' : ''}}" src="/svg/list_expense.svg">
+              </a>
               <div class="quick-access-menu-label d-none d-sm-block">{{ __('List Expenses') }}</div>
             </div>
             <div class="col-3">
