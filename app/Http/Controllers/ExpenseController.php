@@ -73,7 +73,7 @@ class ExpenseController extends Controller
         return view('expense.create')
           ->with('categoryCode', $request->category)
           ->with('categoryName', Category::getName($request->category))
-          ->with('isExpense', true);
+          ->with('isNewExpense', true);
     }
 
     /**

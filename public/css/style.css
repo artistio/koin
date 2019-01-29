@@ -27,13 +27,15 @@
   width: 100%;
 }
 
-.form-date .btn {
+.form-date1 .btn {
   height: 3rem;
   border-radius: 2rem;
   letter-spacing: .1rem;
   font-weight: bold;
   transition: all 0.2s;
 }
+
+
 
 .form-new-expense .btn {
   font-size: 80%;
