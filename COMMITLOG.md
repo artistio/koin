@@ -2,9 +2,20 @@
 
 ## Commit Log
 
+### Nightly Build 3 Feb 2019
+* Add the following column to expenses table: description
+* Add the following column to categories table: level
+* Create mutator Expense::setExpenseDateAttribute to format expense_day, expense_year, expense_month, day_of_month
+* Fix expense_day, expense_year, expense_month, day_of_month formatting in mutator Expense::setExpenseDateAttribute
+* [TODO 1] Categories uniqueness per level and per user_id
+* [TODO 2] Script to correct the field expense_day, expense_year, expense_month, day_of_month for expense already in database
+
 ### Nightly Build 29 Jan 2019
 * Homepage now redirect to home view instead of welcome
 * Fix screen alignment for big and small screen using input group & grid
+* [TODO 1] Add description field to expense
+* [TODO 2] Expense summary as part of reporting, i.e. by category
+* _MERGED TO MASTER_
 
 ### Nightly Build 28 Jan 2019
 * Create expense route and view for GET /expense to ExpenseController@index
@@ -21,4 +32,4 @@
 * [TODO 1] Create page for new category
 * [TODO 2] Create page for editing category
 * [TODO 3] Place menu for category, not in quick access
-* [TODO 4] Create expense summary table
+* ~~[TODO 4] Create expense summary table~~ - Changed to [TODO 2] in 29 Jan 2019

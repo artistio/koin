@@ -33,6 +33,11 @@
         <label for="inputAmount">{{ __('Transaction Amount') }}</label>
       </div>
 
+      <div class="form-label-group">
+        <input name="description" type="text" id="inputDescription" class="form-control" placeholder="Description">
+        <label for="inputDescription">{{ __('Description') }}</label>
+      </div>
+
       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('Save Expense') }}</button>
       <hr class="my-4">
     </form>

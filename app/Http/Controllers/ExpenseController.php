@@ -113,15 +113,18 @@ class ExpenseController extends Controller
         $expense->expense_date = $request['expense_date'];
         $expense->payee_id = $request['payee_id'];
         $expense->amount = $request['amount'];
+        $expense->expense_code = $request->categoryCode;
+        $expense->description = $request->description;
+
 
         // Calculate date fields from input data
-        $datestring = strtotime($request['expenseDate']);
+        /* Moved to mutators
+        $datestring = strtotime($request['expense_date']);
         $expense->expense_day = date("N", $datestring);
         $expense->day_of_month = date("j", $datestring);
         $expense->expense_month = date("m", $datestring);
         $expense->expense_year = date("Y", $datestring);
-
-        $expense->expense_code = $request->categoryCode;
+        */
 
         if($expense->save())
         {

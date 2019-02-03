@@ -53,6 +53,7 @@
         <thead>
           <th scope="col">{{ __('Date') }}</th>
           <th scope="col">{{ __('Category') }}</th>
+          <th scope="col">{{ __('Description') }}</th>
           <th scope="col">{{ __('Amount') }}</th>
         </thead>
         <tbody>
@@ -60,6 +61,7 @@
             <tr>
               <td>{{ $expense->expense_date }}</td>
               <td>{{ $expense->getCategoryName() }}</td>
+              <td>{{ $expense->description }}</td>
               <td>{{ $expense->amount }}</td>
             </tr>
           @endforeach

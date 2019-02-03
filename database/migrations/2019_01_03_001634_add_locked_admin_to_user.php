@@ -28,7 +28,9 @@ class AddLockedAdminToUser extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            // Note that the rollback code is untested
+            $table->dropColumn('is_admin');
+            $table->dropColumn('is_locked');
         });
     }
 }
