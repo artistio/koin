@@ -50,6 +50,24 @@
                                 </li>
                             @endif
                         @else
+                            <!-- Report Dropdown -->
+                            <li class="nav-item dropdown">
+                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                  {{ __('Report') }} <span class="caret"></span>
+                              </a>
+
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">
+                                  {{ __('By Category')}}
+                                </a>
+                                <a class="dropdown-item" href="/report">
+                                  {{ __('By Date')}}
+                                </a>
+                              </div>
+
+                            </li>
+
+                            <!-- User Profile Dropdown -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

@@ -2,18 +2,28 @@
 
 ## Commit Log
 
+### Nightly Build 9 Feb 2019
+* Add doctrine/dbal via composer
+* Refactor date selection in as formdate component
+* Returned expenses now sorted by date
+* Add menu for report By Category and By Date
+* Add ReportController for reporting
+* Add ReportController@byDate for total expense by date
+* [TODO 1] Add ReportController@byCategory for total expense per category
+
 ### Nightly Build 3 Feb 2019
 * Add the following column to expenses table: description
 * Add the following column to categories table: level
 * Create mutator Expense::setExpenseDateAttribute to format expense_day, expense_year, expense_month, day_of_month
 * Fix expense_day, expense_year, expense_month, day_of_month formatting in mutator Expense::setExpenseDateAttribute
 * [TODO 1] Categories uniqueness per level and per user_id
-* [TODO 2] Script to correct the field expense_day, expense_year, expense_month, day_of_month for expense already in database
+* ~~ [TODO 2] Script to correct the field expense_day, expense_year, expense_month, day_of_month for expense already in database~~ - Fixed through phpMyAdmin 3 Feb 2019
+* _MERGED TO MASTER_
 
 ### Nightly Build 29 Jan 2019
 * Homepage now redirect to home view instead of welcome
 * Fix screen alignment for big and small screen using input group & grid
-* [TODO 1] Add description field to expense
+* ~~[TODO 1] Add description field to expense~~ - Completed 3 Feb 2019
 * [TODO 2] Expense summary as part of reporting, i.e. by category
 * _MERGED TO MASTER_
 

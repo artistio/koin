@@ -33,3 +33,6 @@ Route::post('/expense', 'ExpenseController@store')->name('storeExpense');
 
 // Route for Category
 Route::get('/category', 'CategoryController@index')->name('categoryIndex');
+
+// Route for Report
+Route::get('/report', 'ReportController@byDate')->name('reportByDate');

@@ -1,6 +1,6 @@
 @extends('_layouts.app')
 
-<!-- Expense Index Template -->
+<!-- Report by Date Template -->
 
 @section('content')
 @include('_components.quickaccess')
@@ -14,12 +14,11 @@
     <div class="collapse navbar-collapse" id="navbarExpense">
       <!-- Left Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
-        @include('_components.formdate', ['action' => route('getExpense') ])
+        @include('_components.formdate', ['action' => route('reportByDate') ])
 
       </ul>
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
-            <a href="{{ route('selectCategory') }}" class="btn btn-sm btn-primary text-uppercase">+ {{ __('New Expense') }}</a>
       </ul>
     </div>
   </nav>
@@ -28,17 +27,13 @@
       <table class="table">
         <thead>
           <th scope="col">{{ __('Date') }}</th>
-          <th scope="col">{{ __('Category') }}</th>
-          <th scope="col">{{ __('Description') }}</th>
-          <th scope="col">{{ __('Amount') }}</th>
+          <th scope="col">{{ __('Total Amount') }}</th>
         </thead>
         <tbody>
           @foreach ($expenseList as $expense)
             <tr>
               <td>{{ $expense->expense_date }}</td>
-              <td>{{ $expense->getCategoryName() }}</td>
-              <td>{{ $expense->description }}</td>
-              <td>{{ $expense->amount }}</td>
+              <td>{{ $expense->total_amount }}</td>
             </tr>
           @endforeach
         </tbody>
