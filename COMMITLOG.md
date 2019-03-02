@@ -2,6 +2,14 @@
 
 ## Commit Log
 
+### Nightly Build 2 Mar 2019
+* Add ReportController@byCategory
+* Function Expense->getCategoryName is replaced with accessor getExpenseCodeNameAttribute
+* Refactor database query in ReportController@byDate Controller
+* Add number formatting in expense and report
+* Expense is now right-aligned
+* _MERGED TO MASTER_ 
+
 ### Nightly Build 9 Feb 2019
 * Add doctrine/dbal via composer
 * Refactor date selection in as formdate component
@@ -9,7 +17,7 @@
 * Add menu for report By Category and By Date
 * Add ReportController for reporting
 * Add ReportController@byDate for total expense by date
-* [TODO 1] Add ReportController@byCategory for total expense per category
+* ~~[TODO 1] Add ReportController@byCategory for total expense per category~~ - Added on 2 Mar 2019
 
 ### Nightly Build 3 Feb 2019
 * Add the following column to expenses table: description

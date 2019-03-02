@@ -36,3 +36,4 @@ Route::get('/category', 'CategoryController@index')->name('categoryIndex');
 
 // Route for Report
 Route::get('/report', 'ReportController@byDate')->name('reportByDate');
+Route::get('/report/category', 'ReportController@byCategory')->name('reportByCategory');

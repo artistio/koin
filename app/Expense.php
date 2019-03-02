@@ -19,7 +19,20 @@ class Expense extends Model
       $this->attributes['expense_year'] = date("Y", $datestring);
     }
 
+/*  Replaced by Accessor getExpensseCodeNameAttribute
     public function getCategoryName() {
+      return Category::getName($this->expense_code);
+    }
+*/
+    /**
+     * Get Expennse Code Name
+     * Mutator for expense_code_name
+     *
+     * @param
+     * @return String
+     */
+    public function getExpenseCodeNameAttribute()
+    {
       return Category::getName($this->expense_code);
     }
 }

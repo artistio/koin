@@ -57,10 +57,10 @@
                               </a>
 
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('reportByCategory') }}">
                                   {{ __('By Category')}}
                                 </a>
-                                <a class="dropdown-item" href="/report">
+                                <a class="dropdown-item" href="{{ route('reportByDate') }}">
                                   {{ __('By Date')}}
                                 </a>
                               </div>

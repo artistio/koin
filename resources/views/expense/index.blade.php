@@ -36,9 +36,9 @@
           @foreach ($expenseList as $expense)
             <tr>
               <td>{{ $expense->expense_date }}</td>
-              <td>{{ $expense->getCategoryName() }}</td>
+              <td>{{ $expense->expense_code_name }}</td>
               <td>{{ $expense->description }}</td>
-              <td>{{ $expense->amount }}</td>
+              <td class="text-right">{{ number_format($expense->amount) }}</td>
             </tr>
           @endforeach
         </tbody>

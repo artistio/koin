@@ -14,8 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarExpense">
       <!-- Left Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
-        @include('_components.formdate', ['action' => route('reportByDate') ])
-
+        @include('_components.formdate', ['action' => route('reportByCategory') ])
       </ul>
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
@@ -26,13 +25,15 @@
     <div class="col-10 col-md-8">
       <table class="table">
         <thead>
-          <th scope="col">{{ __('Date') }}</th>
+          <th scope="col">{{ __('Category Code') }}</th>
+          <th scope="col">{{ __('Category Code') }}</th>
           <th scope="col">{{ __('Total Amount') }}</th>
         </thead>
         <tbody>
           @foreach ($expenseList as $expense)
             <tr>
-              <td>{{ $expense->expense_date }}</td>
+              <td>{{ $expense->expense_code_name }}</td>
+              <td>{{ $expense->expense_code }}</td>
               <td class="text-right">{{ number_format($expense->total_amount) }}</td>
             </tr>
           @endforeach
